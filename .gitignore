@@ -1,0 +1,6 @@
+.DS_Store
+.obsidian
+.vault-stats
+.vscode
+cmake-build-debug
+build
