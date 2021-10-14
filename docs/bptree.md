@@ -81,10 +81,10 @@ The insertion and deletion operators have not been implemented in the code base.
 
 ## Chart
 
-A fun aspect of this project is the dynamic generation of  a visual mermaid chart stored in file `data/chart.md`. The chart generated visually shows the B+-Tree and heap. The insert and delete funtions for the B+-Tree are not implemented, therefore, the boiler plate will only generate a chart of the heap. To view this chart open the `data/chart.md` file in a markdown editor that supports rendering mermaid charts 
+A fun aspect of this project is the dynamic generation of  a visual mermaid chart stored in file `data/chart.html`. The chart generated visually shows the B+-Tree and heap. The insert and delete funtions for the B+-Tree are not implemented, therefore, the boiler plate will only generate a chart of the heap. To view this chart open the `data/chart.html` file in a web browser.
 
 :::note
- CLion is capable of rendering this chart, the Mermaid option has to be enabled in the settings. VSCode is also capable of rendering mermaid charts
+ Both CLion and VS Code are capable of rendering this chart
 :::
 
 ![chart](chart.png){ height=9.705cm }
@@ -203,5 +203,5 @@ virtual functions - [Link](https://www.geeksforgeeks.org/virtual-function-cpp/)
 To compile these notes to convert to pdf form run
 
 ```
-pandoc "phase0.md" -o "phase0.pdf" --from markdown --template eisvogel --filter pandoc-latex-environment --listings
+pandoc "bptree.md" -o "bptree.pdf" --from markdown --template eisvogel --filter pandoc-latex-environment --listings
 ``` -->

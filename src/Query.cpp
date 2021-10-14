@@ -90,9 +90,32 @@ void Query::execute_export() {
     bptree.export_bptree();
 }
 void Query::chart() {
-    ofstream fout(DATA_PATH + "chart.md");
+    ofstream fout(DATA_PATH + "chart.html");
+    fout << "<html>" << endl;
+    fout << "<head>\n"
+            "    <script type=\"text/javascript\" src=\"https://livejs.com/live.js\"></script>\n"
+            " <style>\n"
+            "   .middle {\n"
+            "       width: 100%;\n"
+            "       text-align: center;\n"
+            "   }\n"
+            "</style>\n"
+            "</head>" << endl;
+    fout << "<body>" << endl;
+    fout << "<script src=\"https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js\"></script>" << endl;
+    fout << "<script> \nvar config = { startOnLoad:true }\nmermaid.initialize(config);\n</script>" << endl;
+    fout << "<div class=\"middle\">" << endl;
+    fout << "<div class=\"mermaid\">" << endl;
     bptree.chart(fout);
+    fout << "</div>" << endl;
+    fout << "</div>" << endl;
+    fout << "<div class=\"middle\">" << endl;
+    fout << "<div class=\"mermaid\">" << endl;
     heap.chart(fout);
+    fout << "</div>" << endl;
+    fout << "</div>" << endl;
+    fout << "</body>" << endl;
+    fout << "</html>" << endl;
     fout.close();
 }
 

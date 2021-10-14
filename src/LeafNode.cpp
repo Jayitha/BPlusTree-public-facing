@@ -58,13 +58,15 @@ void LeafNode::export_node(ostream &os) {
 
 //writes leaf as a mermaid chart
 void LeafNode::chart(ostream &os) {
-    string chart_node = this->tree_ptr + "[" + this->tree_ptr + BREAK;
+    string chart_node = this->tree_ptr + "(" + this->tree_ptr + BREAK;
     chart_node += "size: " + to_string(this->size) + BREAK;
     for(const auto& data_pointer: this->data_pointers) {
         chart_node += to_string(data_pointer.first) + " ";
     }
-    chart_node += "]";
+    chart_node += ")";
     os << chart_node << endl;
+    string chart_style = "style " + this->tree_ptr + " fill:#C2E086, stroke:#90AE54";
+    os << chart_style << endl;
 }
 
 ostream& LeafNode::write(ostream &os) const {

@@ -73,10 +73,12 @@ void InternalNode::export_node(ostream &os) {
 
 //writes subtree rooted at this node as a mermaid chart
 void InternalNode::chart(ostream &os) {
-    string chart_node = this->tree_ptr + "[" + this->tree_ptr + BREAK;
+    string chart_node = this->tree_ptr + "(" + this->tree_ptr + BREAK;
     chart_node += "size: " + to_string(this->size) + BREAK;
-    chart_node += "]";
+    chart_node += ")";
     os << chart_node << endl;
+    string chart_style = "style "+ this->tree_ptr + " fill:#ECEAA0, stroke:#000";
+    os << chart_style << endl;
 
     for(int i = 0; i < this->size; i++) {
         auto tree_node = TreeNode::tree_node_factory(this->tree_pointers[i]);

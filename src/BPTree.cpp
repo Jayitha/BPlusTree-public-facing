@@ -55,12 +55,11 @@ void BPTree::export_bptree() const {
 
 //creates mermaid chart of bptree
 void BPTree::chart(ostream &os) const {
-    os << "```mermaid" << endl;
     os << "graph TD" << endl;
     os << "subgraph B+TREE" << endl;
+    os << "style B+TREE fill:#F8F8F8, stroke-width:0.5px, stroke:#000" << endl;
     auto root_node = TreeNode::tree_node_factory(this->root_ptr);
     root_node->chart(os);
     delete root_node;
     os << "end" << endl;
-    os << "```" << endl;
 }

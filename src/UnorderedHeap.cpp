@@ -110,9 +110,9 @@ void UnorderedHeap::range(ostream &os, const Key &min_key, const Key &max_key) c
 }
 
 void UnorderedHeap::chart(ostream& os) const{
-    os << "```mermaid" << endl;
     os << "graph LR" << endl;
     os << "subgraph UNORDERED_HEAP" << endl;
+    os << "style UNORDERED_HEAP fill:#F8F8F8, stroke-width:0.5px, stroke:#000" << endl;
     BlockPtr current_block_ptr = this->first_block_ptr;
     BlockPtr previous_block_ptr = NULL_PTR;
     while(!is_null(current_block_ptr)){
@@ -125,7 +125,6 @@ void UnorderedHeap::chart(ostream& os) const{
         delete block;
     }
     os << "end" << endl;
-    os << "```" << endl;
 }
 
 ostream& operator<<(ostream& os, UnorderedHeap unordered_heap) {

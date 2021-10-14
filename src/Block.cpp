@@ -96,15 +96,17 @@ void Block::range(ostream &os, const Key &min_key, const Key &max_key) {
 
 //creates a node in the mermaid chart
 void Block::chart(ostream &os) const {
-    string chart_node = this->block_ptr + "[" + this->block_ptr + BREAK;
+    string chart_node = this->block_ptr + "[[" + this->block_ptr + BREAK;
     chart_node += "size: " + to_string(this->size) + BREAK;
     for(const auto& key: this->keys)
         if(key == DELETE_MARKER)
             chart_node += "_ ";
         else
             chart_node += to_string(key) + " ";
-    chart_node += "]";
+    chart_node += "]]";
     os << chart_node << endl;
+    string chart_style = "style " + this->block_ptr + " fill:#EEE, stroke:#000";
+    os << chart_style << endl;
 }
 
 //Function writes block from MM to disk
